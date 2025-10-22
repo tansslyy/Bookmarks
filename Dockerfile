@@ -6,9 +6,12 @@ WORKDIR /usr/src/app
 
 # Копіюємо package.json та yarn.lock
 COPY package.json yarn.lock ./
+COPY prisma ./prisma
 
 # Встановлюємо залежності через yarn
 RUN yarn install --frozen-lockfile
+RUN npx prisma generate
+
 
 # Копіюємо весь код проєкту
 COPY . .
