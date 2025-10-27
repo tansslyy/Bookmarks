@@ -4,12 +4,6 @@ import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class PrismaService extends PrismaClient{
     constructor(){
-        super({
-            datasources: {
-                db:{
-                    url:'postgresql://user:password@postgres-db:5432/nestdb?schema=public'
-                }
-            }
-        })
+        super()
     }
 }
